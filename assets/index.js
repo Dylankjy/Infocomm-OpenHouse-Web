@@ -17,14 +17,16 @@ function sessionReset() {
 /* Code hints for Try it */
 let hint_tryit1 = `# Start with typing your name. Maybe start a variable called 'name'
 # Hint: name = ____
-name = ""
+name = "(enter your name here)"
 
-# Now, you can try printing. Hint: Use two 'print' One for 'Hello ...' & other for your name
+# Now, you can try printing. Hint: Use two 'print'. One for 'Hello ...' & other for your name
 print('')
 print()
 
-# Try to display 'Hello my name is (your name)'
-# For example, 'Hello my name is Coconut'`
+# Try to display 'Hello my name is 
+#(your name)'
+# For example, 'Hello my name is 
+#Coconut'`
 
 function page(switchInput) {
     switch (switchInput) {
