@@ -1,0 +1,2 @@
+# Redirect domain aliases to primary domain
+http://www.infocommclub.actpl.co/* http://infocommclub.actpl.co/:splat 301!
