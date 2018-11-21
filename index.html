@@ -1,8 +1,250 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Infocomm Club Open House / Python Tutorial</title>
-  </head>
-  <body>
-    <!-- Insert Bootstrap -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infocomm Club Open House / Python Tutorial</title>
+  <link rel="stylesheet" href="./assets/bulma.css">
+  <link rel="stylesheet" href="./assets/index.css">
+  <!-- <link rel="stylesheet" href="./assets/default.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="./assets/index.js"></script>
+  <!-- <script defer src="./assets/highlight.pack.js"></script> -->
+  <script src="./assets/skulpt.min.js"></script>
+  <script src="./assets/skulpt-stdlib.js"></script>
+
+  <script type="text/javascript">
+    // output functions are configurable.  This one just appends some text
+    // to a pre element.
+    function outf(text) {
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = mypre.innerHTML + text;
+    }
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+
+    // Here's everything you need to run a python program in skulpt
+    // grab the code from your textarea
+    // get a reference to your pre element for output
+    // configure the output function
+    // call Sk.importMainWithBody()
+    function runit() {
+      var prog = document.getElementById("yourcode").value;
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = '';
+      Sk.pre = "output";
+      Sk.configure({ output: outf, read: builtinRead });
+      var myPromise = Sk.misceval.asyncToPromise(function () {
+        return Sk.importMainWithBody("<stdin>", false, prog, true);
+      });
+      myPromise.then(function (mod) {
+        console.log('success');
+      },
+        function (err) {
+          console.log(err.toString());
+        });
+    } 
+  </script>
+
+</head>
+
+<body>
+  <div class="notification is-danger mobile-view">
+    Hey there! Ermmmmmm... This is embarrassing but, this page isn't meant to be displayed in a phone and it looks ugly
+    (urghh)... And also, why did you remember the URL of this page? — Dylan (Shunage)
+  </div>
+  <section id="welcome" class="section center-sec" style="">
+    <div class="container">
+      <h1 class="start-title">
+        Is <i class="fab fa-python"></i> Python coding <span id="type-writing">hard?</span>
+      </h1>
+      <h3 class="start-subtitle subtitle">
+        Welcome to the Regent Infocomm Club Booth!<br>
+        This tutorial will show you how simple python coding can be.
+      </h3>
+      <a class="button is-success is-medium" onclick="page('LESSON-1');">Let's Start &emsp14; <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <section id="lesson1" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Lesson 1
+      </h1>
+      <h3 class="subtitle">
+        Getting an output from console
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <p>
+            The first line of code every programmer will learn is <code>print("Hello World")</code>. <br>This will
+            print <code>Hello World</code> in the console (A console a display that will display the output after
+            running code).
+          </p>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('LESSON-2');">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="lesson2" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Lesson 2
+      </h1>
+      <h3 class="subtitle">
+        How to store data in variables
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <span>
+            <p>What is a variable, you may be asking... </p>
+            <p>A <strong>variable</strong> is similar to an algebra (but less complicated). It can store information.</p>
+            <br>
+            <p>For example, by running <code>myVar = 2</code>, the number <code>2</code> has been stored in the
+              variable, <code>myVar</code>.</p>
+            <p>Variables can also be displayed simply by typing the variable name, <code>myVar</code>. It is also
+              possible to add variables together for example:</p>
+            <pre><code class="python">
+              a = 3 
+              b = 4 
+              result = a + b ### This is the same thing as saying 3 + 4
+
+              ### This will show the result in the console. By adding '+' you are combining both things in a 'print'
+              print("The result is " + result) 
+              </code>
+            </pre>
+            <i># means 'comment', in which anything after '#' is not processed as code</i>
+          </span>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('LESSON-1')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('TRYIT-1')">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="tryit1" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Try it Out 1
+      </h1>
+      <h3 class="subtitle">
+        For Lesson 1 & 2
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <span>
+            <p>Alright, now lets try to print a greeting message, with your name, using the code you have learnt!</p><br>
+            <i>Hint, use <code>print</code> and a variable. Go back if you need reference.</i><br>
+            <strong>Important!! Place quotes around your name is a string and not a variable. Words without quotes are
+              treated as variables. In this case, it has already been done for you.</strong>
+            <br><br>
+            <p>This is the expect output:</p>
+            <pre>Hello my name is 
+(your name)</pre>
+          </span>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('LESSON-2')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('LESSON-3')">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="lesson3" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Lesson 3
+      </h1>
+      <h3 class="subtitle">
+        If & else
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <p>
+            This is quite self-explainatory. <code>If</code> this, then do that, <code>else</code>, do the other.
+          </p>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('TRYIT-1')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('LESSON-4');">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="code-section" style="display: none">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <form>
+            <textarea class="textarea" placeholder="Enter python code here" id="yourcode" cols="40" rows="10"></textarea>
+            <br />
+          </form>
+        </div>
+        <div class="column">
+          <pre id="output">(waiting...)</pre>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <a class="card-footer-item" onclick="runit();">
+          <span>
+            Run code
+          </span>
+        </a>
+      </footer>
+    </div>
+  </section>
+
+  <footer class="footer page-footer pos-absolute">
+    <div class="content has-text-centered">
+      <h5><a id="resetSession" style="display: none" onclick="sessionReset();">Go back to start <i class="fas fa-redo-alt"></i></a></h5>
+      <h4>
+        Made with <i style="color:rgb(255, 29, 78)" class="fas fa-heart"></i> by </strong>Dylan Kok<strong> for
+          Infocomm Club<br>
+      </h4>
+    </div>
+  </footer>
+
+</body>
+<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+
 </html>

@@ -1,0 +1,54 @@
+.center-sec {
+    /* position: relative; */
+    margin-top: 5vh;
+    /* left: 30%; */
+    /* margin: -70px 0 0 -170px; */
+}
+
+#welcome {
+    margin-top: 22vh;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.page-footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    margin-top: 5em;
+}
+
+.start-title {
+    font-size: 70px
+}
+
+.start-subtitle {
+    font-size: 20px
+}
+
+.mobile-view {
+    display: none !important
+}
+
+#output {
+    height: 100%
+}
+
+.code-section {
+    position: relative;
+    
+}
+
+@media only screen and (max-width: 1087px) {
+    .mobile-view {
+        display: inline-block !important;
+        position: relative;
+        margin-bottom: -100px !important;
+    }
+}
