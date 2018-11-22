@@ -117,7 +117,7 @@ function page(switchInput) {
             $('#code-section').hide()
             $('#resetSession').hide()
             $('#end').show()
-            setTimeout(function () { window.location.reload(false) }, 5000)
+            setTimeout(function () { window.location.reload(false) }, 12000)
             break;
         }
         default: {
