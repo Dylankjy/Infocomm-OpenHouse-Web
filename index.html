@@ -1,3 +1,8 @@
+<!-- 
+  Copyright (c) 2018, Dylan Kok (Shunage)
+  All rights reserved.
+ -->
+
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +15,7 @@
   <!-- <link rel="stylesheet" href="./assets/default.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="./assets/typewriter.js"></script>
   <script src="./assets/index.js"></script>
   <!-- <script defer src="./assets/highlight.pack.js"></script> -->
   <script src="./assets/skulpt.min.js"></script>
@@ -24,8 +30,10 @@
   </div>
   <section id="welcome" class="section center-sec">
     <div class="container">
-      <h1 class="start-title">
-        Is <i class="fab fa-python"></i> Python coding <span id="type-writing">hard?</span>
+      <h1 class="start-title"><i class="fab fa-python"></i><br>
+        <span id="type-writing">
+          Is <i class="fab fa-python"></i> Python coding hard?
+        </span>
       </h1>
       <h3 class="start-subtitle subtitle">
         Welcome to the Regent Infocomm Club Booth!<br>
@@ -328,6 +336,15 @@ else:
   </div>
 
 </body>
+<script>
+// Typewriter.js
+new Typewriter('#type-writing', {
+    strings: ['Is python hard?', 'Is programming confusing?', "Programming looks complicated!", "Python?! Sounds scary..."],
+    autoStart: true,
+    loop: true,
+    speed: 10,
+});
+</script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
 
 </html>
