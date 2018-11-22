@@ -20,6 +20,12 @@
   <!-- <script defer src="./assets/highlight.pack.js"></script> -->
   <script src="./assets/skulpt.min.js"></script>
   <script src="./assets/skulpt-stdlib.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext"
+    rel="stylesheet">
+  <link href="./assets/nprogress.css" rel="stylesheet">
+  <script src="./assets/nprogress.js"></script>
 
 </head>
 
@@ -43,7 +49,7 @@
     </div>
   </section>
 
-  <section id="lesson1" class="section center-sec" style="display: none">
+  <section id="lesson1" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Lesson 1
@@ -70,7 +76,7 @@
     </div>
   </section>
 
-  <section id="lesson2" class="section center-sec" style="display: none">
+  <section id="lesson2" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Lesson 2
@@ -111,7 +117,7 @@ a + b ### This is the same thing as saying 3 + 4
     </div>
   </section>
 
-  <section id="tryit1" class="section center-sec" style="display: none">
+  <section id="tryit1" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Try it Out 1
@@ -123,7 +129,7 @@ a + b ### This is the same thing as saying 3 + 4
         <div class="card-content">
           <span>
             <p>Alright, now lets try to print your name, using the code you have learnt!</p><br>
-            <i>Hint, use <code>print</code>. Go back if you need reference.</i><br>
+            <i>Hint, use <code>print</code>. <br>Go back if you need reference.</i><br>
             <br>
             <a class="button is-small is-info" href="/solutions/1.html" target="_blank">View solution</a>
           </span>
@@ -144,7 +150,7 @@ a + b ### This is the same thing as saying 3 + 4
     </div>
   </section>
 
-  <section id="tryit2" class="section center-sec" style="display: none">
+  <section id="tryit2" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Try it Out 2
@@ -177,7 +183,7 @@ a + b ### This is the same thing as saying 3 + 4
     </div>
   </section>
 
-  <section id="lesson3" class="section center-sec" style="display: none">
+  <section id="lesson3" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Lesson 3
@@ -219,7 +225,7 @@ else:
     </div>
   </section>
 
-  <section id="tryit3" class="section center-sec" style="display: none">
+  <section id="tryit3" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Try it Out 3
@@ -254,7 +260,7 @@ else:
     </div>
   </section>
 
-  <section id="end" class="section center-sec" style="display: none">
+  <section id="end" class="section center-sec fade-in" style="display: none">
     <div class="container">
       <h1 class="title">
         Thanks for the tutorial out!
@@ -337,12 +343,27 @@ else:
 
 </body>
 <script>
-// Typewriter.js
-new Typewriter('#type-writing', {
+  // Typewriter.js
+  new Typewriter('#type-writing', {
     strings: ['Is python hard?', 'Is programming confusing?', "Programming looks complicated!", "Python?! Sounds scary..."],
     autoStart: true,
     loop: true,
     speed: 10,
+  });
+</script>
+<script>
+NProgress.start();
+var interval = setInterval(function() {
+    NProgress.inc()
+}, 500);
+$(window).on("load", function() {
+    $(window).ready(function() {
+        clearInterval(interval);
+        NProgress.done()
+    })
+});
+$(window).on("unload", function() {
+    NProgress.start()
 });
 </script>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
