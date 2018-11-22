@@ -41,7 +41,7 @@ function page(switchInput) {
             break;
         }
         case 'LESSON-2': {
-            $(".page-footer").removeClass( "pos-relative" ).addClass( "pos-absolute" );
+            /*$(".page-footer").removeClass( "pos-relative" ).addClass( "pos-absolute" );*/
             $('#lesson1').hide()
             $('#tryit1').hide()
             $('#code-section').hide()
@@ -49,7 +49,7 @@ function page(switchInput) {
             break;
         }
         case 'TRYIT-1': {
-            $(".page-footer").removeClass( "pos-absolute" ).addClass( "pos-relative" );
+            /*$(".page-footer").removeClass( "pos-absolute" ).addClass( "pos-relative" );*/
             $('#lesson2').hide()
             $('#lesson3').hide()
             $('#code-section').show()
@@ -59,7 +59,7 @@ function page(switchInput) {
             break;
         }
         case 'LESSON-3': {
-            $(".page-footer").removeClass( "pos-relative" ).addClass( "pos-absolute" );
+            /*$(".page-footer").removeClass( "pos-relative" ).addClass( "pos-absolute" );*/
             $('#tryit1').hide()
             $('#code-section').hide()
             $('#lesson3').show()
