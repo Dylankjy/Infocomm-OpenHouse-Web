@@ -22,6 +22,7 @@
     width: 100%;
     height: 60px;
     margin-top: 5em;
+    background: transparent !important;
 }
 
 .start-title {
