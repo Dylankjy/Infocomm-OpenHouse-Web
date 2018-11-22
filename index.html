@@ -15,42 +15,6 @@
   <script src="./assets/skulpt.min.js"></script>
   <script src="./assets/skulpt-stdlib.js"></script>
 
-  <script type="text/javascript">
-    // output functions are configurable.  This one just appends some text
-    // to a pre element.
-    function outf(text) {
-      var mypre = document.getElementById("output");
-      mypre.innerHTML = mypre.innerHTML + text;
-    }
-    function builtinRead(x) {
-      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
-        throw "File not found: '" + x + "'";
-      return Sk.builtinFiles["files"][x];
-    }
-
-    // Here's everything you need to run a python program in skulpt
-    // grab the code from your textarea
-    // get a reference to your pre element for output
-    // configure the output function
-    // call Sk.importMainWithBody()
-    function runit() {
-      var prog = document.getElementById("yourcode").value;
-      var mypre = document.getElementById("output");
-      mypre.innerHTML = '';
-      Sk.pre = "output";
-      Sk.configure({ output: outf, read: builtinRead });
-      var myPromise = Sk.misceval.asyncToPromise(function () {
-        return Sk.importMainWithBody("<stdin>", false, prog, true);
-      });
-      myPromise.then(function (mod) {
-        console.log('success');
-      },
-        function (err) {
-          console.log(err.toString());
-        });
-    } 
-  </script>
-
 </head>
 
 <body>
@@ -58,7 +22,7 @@
     Hey there! Ermmmmmm... This is embarrassing but, this page isn't meant to be displayed in a phone and it looks ugly
     (urghh)... And also, why did you remember the URL of this page? — Dylan (Shunage)
   </div>
-  <section id="welcome" class="section center-sec" style="">
+  <section id="welcome" class="section center-sec">
     <div class="container">
       <h1 class="start-title">
         Is <i class="fab fa-python"></i> Python coding <span id="type-writing">hard?</span>
@@ -109,8 +73,7 @@
       <div class="card">
         <div class="card-content">
           <span>
-            <p>What is a variable, you may be asking... </p>
-            <p>A <strong>variable</strong> is similar to an algebra (but less complicated). It can store information.</p>
+            <p>A <strong>variable</strong> can store data, such as strings (sentences & words) as well as numbers.</p>
             <br>
             <p>For example, by running <code>myVar = 2</code>, the number <code>2</code> has been stored in the
               variable, <code>myVar</code>.</p>
@@ -151,19 +114,47 @@ a + b ### This is the same thing as saying 3 + 4
       <div class="card">
         <div class="card-content">
           <span>
-            <p>Alright, now lets try to print a greeting message, with your name, using the code you have learnt!</p><br>
-            <i>Hint, use <code>print</code> and a variable. Go back if you need reference.</i><br>
-            <strong>Important!! Place quotes around your name is a string and not a variable. Words without quotes are
-              treated as variables. In this case, it has already been done for you.</strong><br><br>
-              <strong><i># means 'comment', in which anything after '#' is not processed as code</i></strong>
-            <br><br>
-            <p>This is the expect output:</p>
-            <pre>Hello my name is 
-(your name)</pre>
+            <p>Alright, now lets try to print your name, using the code you have learnt!</p><br>
+            <i>Hint, use <code>print</code>. Go back if you need reference.</i><br>
+            <br>
+            <a class="button is-small is-info" href="/solutions/1.html" target="_blank">View solution</a>
           </span>
         </div>
         <footer class="card-footer">
           <a class="card-footer-item" onclick="page('LESSON-2')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('TRYIT-2')">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="tryit2" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Try it Out 2
+      </h1>
+      <h3 class="subtitle">
+        For Lesson 1 & 2
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <span>
+            <p>Now, try to add two variables and then print the result.</p><br>
+            <i>Hint, use <code>print</code> as well as variables. Go back if you need reference.</i><br>
+            <br>
+            <a class="button is-small is-info" href="/solutions/2.html" target="_blank">View solution</a>
+          </span>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('TRYIT-1')">
             <span>
               Back
             </span>
@@ -189,16 +180,28 @@ a + b ### This is the same thing as saying 3 + 4
       <div class="card">
         <div class="card-content">
           <p>
-            This is quite self-explainatory. <code>if</code> this, then do that, <code>else</code>, do the other.
+            This is quite self-explainatory. <code>if</code> this, do that, <code>else</code>, do the other.
           </p>
+          <pre># Variables
+favouriteFood = "vegetables"
+
+# If statement
+if favouriteFood = "vegetables":
+    print("You must be very healthy!")
+else:
+    print("You should eat something healthier.")</pre>
+          <p>Since <code>favouriteFood = "vegetables"</code>, <code>You must be very healthy!</code> will be shown.
+            Anything other than <code>vegetables</code> such as <code>fried chicken</code>, will print <code>You should eat something healthier.</code>
+            instead.</p>
+          <h3 class="is-"></h3>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item" onclick="page('TRYIT-1')">
+          <a class="card-footer-item" onclick="page('TRYIT-2')">
             <span>
               Back
             </span>
           </a>
-          <a class="card-footer-item" onclick="page('LESSON-4');">
+          <a class="card-footer-item" onclick="page('TRYIT-3');">
             <span>
               Next
             </span>
@@ -208,17 +211,83 @@ a + b ### This is the same thing as saying 3 + 4
     </div>
   </section>
 
-  <section id="code-section" style="display: none">
+  <section id="tryit3" class="section center-sec" style="display: none">
     <div class="container">
+      <h1 class="title">
+        Try it Out 3
+      </h1>
+      <h3 class="subtitle">
+        For Lesson 3
+      </h3>
+      <div class="card">
+        <div class="card-content">
+          <span>
+            <p>Create a simple if & else statement to test whether a student has gotten an 'A' for a test.<br>Note
+              that, 75 and above is an 'A'</p><br>
+            <i>Go back if you need reference. For your reference, <code>&gt;=</code> means more than or equals to. </i>
+            <p>Hint: <code>if marks &gt;= (something)</code></p>
+            <br>
+            <a class="button is-small is-info" href="/solutions/3.html" target="_blank">View solution</a>
+          </span>
+        </div>
+        <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('LESSON-3')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('END')">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section id="end" class="section center-sec" style="display: none">
+    <div class="container">
+      <h1 class="title">
+        Thanks for the tutorial out!
+      </h1>
+      <div class="card">
+        <div class="card-content">
+          <span style="font-size: 42px">
+            <i class="fas fa-check-circle"></i>
+          </span>
+          <p>
+            Python is commonly used in many tech companies such as Google, and it is useful in the future.<br>If you
+            were to join Regent, be sure to join the Infocomm Club!
+            <h4 class="subtitle">Thank you and have a nice day!</h4>
+          </p>
+          <h3 class="is-"></h3>
+        </div>
+        <!-- <footer class="card-footer">
+          <a class="card-footer-item" onclick="page('TRYIT-2')">
+            <span>
+              Back
+            </span>
+          </a>
+          <a class="card-footer-item" onclick="page('TRYIT-3');">
+            <span>
+              Next
+            </span>
+          </a>
+        </footer> -->
+      </div>
+    </div>
+  </section>
+
+  <section id="code-section" style="display: none">
+    <div class="container card">
       <div class="columns">
         <div class="column">
-          <form>
-            <textarea class="textarea" placeholder="Enter python code here" id="yourcode" cols="40" rows="10"></textarea>
-            <br />
-          </form>
+          <textarea class="textarea" spellcheck="false" onkeydown="insertTab(this, event);" placeholder="Enter python code here"
+            id="yourcode" cols="40" rows="10"></textarea>
         </div>
         <div class="column">
-          <pre id="output">(waiting...)</pre>
+          <textarea class="textarea is-disabled" spellcheck="false" id="output" disabled>(waiting...)</textarea>
         </div>
       </div>
       <footer class="card-footer">
@@ -240,6 +309,23 @@ a + b ### This is the same thing as saying 3 + 4
       </h4>
     </div>
   </footer>
+
+  <div id="afk-warn" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title"><i class="fas fa-exclamation-circle"></i> AFKing detected</p>
+      </header>
+      <section class="modal-card-body">
+        Uhhhh... If you are still here, click <i>"I'm still here"</i> to prevent the tutorial from restarting.
+        <br>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-danger" onclick="afkActive();">I'm still here</button>
+        <p><i class="fas fa-arrow-left"></i> Click; else the tutorial will reset in 10 seconds</p>
+      </footer>
+    </div>
+  </div>
 
 </body>
 <!-- <script>hljs.initHighlightingOnLoad();</script> -->
