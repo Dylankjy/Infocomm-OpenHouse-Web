@@ -1,3 +1,11 @@
+/* Copyright (c) Dylan Kok (Koku Shunage) 2018. Distribution and unauthorised storage of this file is prohibited */
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .center-sec {
     /* position: relative; */
     margin-top: 5vh;
