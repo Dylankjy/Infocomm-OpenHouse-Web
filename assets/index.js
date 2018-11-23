@@ -46,10 +46,9 @@ let hint_tryit3 = `# Start with variables.
 # You may input any marks to test your code.
 marks = 
 
-# Check if marks are higher than 75. Example: if a <= 10:
-# Make an if statement below this line
+# Check if marks are higher than 75. Example: if a >= 50:
+#if statement - add your if statement below this line)
 
-[[(if statement - replace this line with your if statement)]]
     print("This student has gotten an 'A' grade.")
 else:
     print("This mark is not an 'A'")
