@@ -6,7 +6,7 @@ let timeout;
 document.onmousemove = function () {
     if ($("#welcome").is(":hidden") === true) {
         clearTimeout(timeout);
-        timeout = setTimeout(function () { afk(); }, 45000);
+        timeout = setTimeout(function () { afk(); }, 60000);
     }
 }
 
